@@ -23,7 +23,7 @@ public class RPGBattle { // ファイル名（RPGBattle.java）と合わせる
             System.out.println("\n--------------------------------");
             System.out.println("【勇者】HP: " + playerHP + " | MP: " + playerMP);
             System.out.println("【魔王】HP: " + bossHP);
-            System.out.println("1: 攻撃 | 2: 回復(MP 5消費) | 3: 逃げる");
+            System.out.println("1: 攻撃 | 2: 回復(MP 5消費) | 3: 逃げる | 4:ギガブレイク(MP 15消費)");
             System.out.print("行動を選んでください > ");
 
             int command = scanner.nextInt();
@@ -53,6 +53,17 @@ public class RPGBattle { // ファイル名（RPGBattle.java）と合わせる
                     break;
                 case 3:
                     System.out.println("脱出した。にげてるようじゃ無理か（笑）ボスにはね、勝てないと");
+                    break;
+                case 4:
+                    if(playerMP >= 15){
+                        playerMP -=15;
+                        playrtArrackdamege = calculateDamage(playerAttack_Power) * 2;
+                        bossHP -= playrtArrackdamege;
+                        System.out.println("必殺\nボスに" + playrtArrackdamege + "ダメージ入った！");
+                    }else {
+                        System.out.println("MPが足りない！");
+                        continue;
+                    }
                     break;
                 default:
                     System.out.println("正しいコマンドを入力してください。");
