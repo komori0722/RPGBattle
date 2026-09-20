@@ -111,6 +111,7 @@ public class RPGBattle { // ファイル名（RPGBattle.java）と合わせる
         double damage = attackPower * rate;
         System.out.println("(倍率" + rate + "倍)");
 
-        return damage; // 結果を呼び出したところへ返す処理。returnがないと、計算されただけで、反映されない。
+        // 結果を呼び出したところへ返す処理。returnがないと、計算されただけで、反映されない。
+        return damage;//damegeが何も入っていない状況だとコンパイルエラーになる。
     }
 }
